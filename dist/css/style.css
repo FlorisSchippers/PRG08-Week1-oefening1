@@ -20,7 +20,22 @@ kart {
     width:93px; height: 99px;
 }
 
-driver {
+mario {
     background-image: url(../images/mario.png);
+    width:93px; height: 99px;
+}
+
+luigi {
+    background-image: url(../images/luigi.png);
+    width:93px; height: 99px;
+}
+
+peach {
+    background-image: url(../images/peach.png);
+    width:93px; height: 99px;
+}
+
+toad {
+    background-image: url(../images/toad.png);
     width:93px; height: 99px;
 }

@@ -1,18 +1,17 @@
-class Kart {
+/// <reference path="gameobject.ts"/>
 
-    private div:HTMLElement;
-    private speed:number;
-            
-    constructor() {
+class Kart extends Gameobject {
+
+    private speed: number;
+    private driver: Driver;
+
+    constructor(char:string, x: number, y: number) {
+        super("kart", document.body, x, y);
         this.speed = 3;
 
-        this.div = document.createElement("kart");
-        document.body.appendChild(this.div);
+        Message.logMessage("Created a kart!");
 
-        this.div.style.transform ="translate(200px,100px)";
-
-        let m:Message = new Message();
-        m.logMessage("Created a kart!");
+        this.driver = new Driver(char, this.div, 0, 0);
     }
- 
+
 }
