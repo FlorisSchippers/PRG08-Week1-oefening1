@@ -32,15 +32,26 @@ var Kart = (function (_super) {
         Message.logMessage("Created a kart!");
         this.driver = new Driver(char, this.div, 0, 0);
     }
+    Kart.prototype.move = function () {
+        this.x += this.speed;
+        this.draw();
+    };
     return Kart;
 }(Gameobject));
 var Game = (function () {
     function Game() {
-        var k1 = new Kart("mario", 200, 200);
-        var k2 = new Kart("luigi", 400, 200);
-        var k3 = new Kart("peach", 600, 200);
-        var k4 = new Kart("toad", 800, 200);
+        var _this = this;
+        this.mario = new Kart("mario", 200, 200);
+        this.luigi = new Kart("luigi", 400, 200);
+        this.peach = new Kart("peach", 600, 200);
+        this.toad = new Kart("toad", 800, 200);
+        requestAnimationFrame(function () { return _this.gameLoop(); });
     }
+    Game.prototype.gameLoop = function () {
+        var _this = this;
+        this.mario.move();
+        requestAnimationFrame(function () { return _this.gameLoop(); });
+    };
     return Game;
 }());
 window.addEventListener("load", function () {
